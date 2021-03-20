@@ -17,11 +17,9 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "direcciones")
-public class Direccion implements Serializable {
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+public class Direccion extends EntityBase {
+
+    private static final long serialVersionUID = -2811665551116745747L;
     
     @Column(name = "calle", length = 50, nullable = false)
     private String calle;
@@ -31,12 +29,6 @@ public class Direccion implements Serializable {
     
     @Column(name = "colonia", length = 20, nullable = false)
     private String colonia;
-    
-    @OneToOne(mappedBy="direccion")
-    private Cliente cliente;
-    
-    @OneToOne(mappedBy="direccion")
-    private Proveedor provedor;
 
     public Direccion() {
     }
@@ -45,30 +37,6 @@ public class Direccion implements Serializable {
         this.calle = calle;
         this.numero = numero;
         this.colonia = colonia;
-    }
-
-    public Proveedor getProvedor() {
-        return provedor;
-    }
-
-    public void setProvedor(Proveedor provedor) {
-        this.provedor = provedor;
-    }
-    
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-    
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getCalle() {

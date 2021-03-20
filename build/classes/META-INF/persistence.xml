@@ -15,11 +15,11 @@
     <class>dominio.Puesto</class>
     <class>dominio.Venta</class>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:sqlite:C:\Users\Daniel Ornelas\Desktop\SistemaNenka.db"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:sqlite:C:/SQLite/sistemanenka.db"/>
       <property name="javax.persistence.jdbc.user" value=""/>
       <property name="javax.persistence.jdbc.driver" value="org.sqlite.JDBC"/>
       <property name="javax.persistence.jdbc.password" value=""/>
-      <property name="javax.persistence.schema-generation.database.action" value="create"/>
+      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
     </properties>
   </persistence-unit>
 </persistence>

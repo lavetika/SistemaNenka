@@ -20,11 +20,10 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "categorias")
-public class Categoria implements Serializable{
+public class Categoria extends EntityBase{
+
+    private static final long serialVersionUID = 355320459886384416L;
     
-    @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Integer id;
     @Column(name = "nombre",length = 45, nullable = false)
     private String nombre;
     @Column(name = "descripcion",length = 100, nullable = false)
@@ -45,14 +44,6 @@ public class Categoria implements Serializable{
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public List<Producto> getProductos() {
@@ -85,24 +76,6 @@ public class Categoria implements Serializable{
         int hash = 5;
         hash = 17 * hash + this.id;
         return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Categoria other = (Categoria) obj;
-        if (this.id != other.id) {
-            return false;
-        }
-        return true;
     }
 
     @Override

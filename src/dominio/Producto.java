@@ -5,9 +5,6 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -20,11 +17,9 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "productos")
-public class Producto {
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+public class Producto extends EntityBase{
+
+    private static final long serialVersionUID = -7635722091768576018L;
     
     @Column(name = "codigo", nullable = false)
     private int codigo;
@@ -43,17 +38,9 @@ public class Producto {
     private Categoria categoria;
     
     @ManyToOne(optional = false)
-    @JoinColumn(name = "id_provedor")
-    private Proveedor provedor;
+    @JoinColumn(name = "id_proveedor")
+    private Proveedor proveedor;
     
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "producto")
-    private List<DetalleVenta> detallesVentas;
-    
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "producto")
-    private List<DetalleCompra> detallesCompras;
-    
-    
-
     public Producto() {
     }
 
@@ -73,22 +60,6 @@ public class Producto {
         this.codigo = codigo;
     }
 
-    public List<DetalleVenta> getDetallesVentas() {
-        return detallesVentas;
-    }
-
-    public void setDetallesVentas(List<DetalleVenta> detallesVentas) {
-        this.detallesVentas = detallesVentas;
-    }
-
-    public List<DetalleCompra> getDetallesCompras() {
-        return detallesCompras;
-    }
-
-    public void setDetallesCompras(List<DetalleCompra> detallesCompras) {
-        this.detallesCompras = detallesCompras;
-    }
-
     public float getPrecio() {
         return precio;
     }
@@ -97,20 +68,12 @@ public class Producto {
         this.precio = precio;
     }
 
-    public Integer getId() {
-        return id;
+    public Proveedor getProveedor() {
+        return proveedor;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Proveedor getProvedor() {
-        return provedor;
-    }
-
-    public void setProvedor(Proveedor provedor) {
-        this.provedor = provedor;
+    public void setProveedor(Proveedor provedor) {
+        this.proveedor = provedor;
     }
     
     public String getNombre() {

@@ -21,11 +21,9 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "puestos")
-public class Puesto implements Serializable {
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+public class Puesto extends EntityBase {
+
+    private static final long serialVersionUID = 908962861052720457L;
     
     @Column(name="rol", nullable = false, length = 8 )
     @Enumerated(value = EnumType.STRING)
@@ -37,17 +35,8 @@ public class Puesto implements Serializable {
     public Puesto() {
     }
 
-    public Puesto(Integer id, Rol rol) {
-        this.id = id;
+    public Puesto(Rol rol) {
         this.rol = rol;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public List<Empleado> getEmpleados() {
@@ -65,7 +54,4 @@ public class Puesto implements Serializable {
     public void setRol(Rol rol) {
         this.rol = rol;
     }
-    
-    
-    
 }

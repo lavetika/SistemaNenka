@@ -1,12 +1,19 @@
 
 package dominio;
 
+import javax.persistence.Column;
+import javax.persistence.MappedSuperclass;
+
 /**
  *
  * @author dianacastro
  */
-public class Persona {
+@MappedSuperclass
+public abstract class Persona extends EntityBase{
+
+    private static final long serialVersionUID = -6241062770652129331L;
     
+    @Column(name="nombre")
     private String nombre;
 
     public Persona() {

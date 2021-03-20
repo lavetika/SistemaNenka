@@ -19,11 +19,9 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "clientes")
-public class Cliente extends Persona implements Serializable {
+public class Cliente extends Persona {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private static final long serialVersionUID = 6948637174011062938L;
 
     @Column(name = "nombre", length = 50, nullable = false)
     private String nombre;
@@ -39,14 +37,6 @@ public class Cliente extends Persona implements Serializable {
     private List<Venta> ventas;
 
     public Cliente() {
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     @Override

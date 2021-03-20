@@ -21,41 +21,35 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table(name = "provedores")
-public class Proveedor implements Serializable {
+@Table(name = "proveedores")
+public class Proveedor extends EntityBase {
+
+    private static final long serialVersionUID = 175810479874098146L;
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    
-    @Column(name = "RFC", nullable = false)
+    @Column(name = "rfc", nullable = false)
     private int rfc;
     
-    @Column(name = "nombre_provedor", length = 50, nullable = false)
+    @Column(name = "nombre_proveedor", length = 50, nullable = false)
     private String nombre;
     
-    @Column(name = "nombre", length = 12, nullable = false)
+    @Column(name = "telefono", length = 12, nullable = false)
     private String telefono;
     
     @OneToOne
     @JoinColumn(name="id_direccion")
     private Direccion direccion;
     
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "provedor")
-    private ArrayList<Producto> productos;
-    
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "provedor")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "proveedor")
     private List<Compra> compras;
 
     public Proveedor() {
     }
 
-    public Proveedor(int rfc, String nombre, String telefono, Direccion direccion, ArrayList<Producto> productos) {
+    public Proveedor(int rfc, String nombre, String telefono, Direccion direccion) {
         this.rfc = rfc;
         this.nombre = nombre;
         this.telefono = telefono;
         this.direccion = direccion;
-        this.productos = productos;
     }
 
     public int getRfc() {
@@ -72,14 +66,6 @@ public class Proveedor implements Serializable {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public List<Compra> getCompras() {
@@ -106,17 +92,9 @@ public class Proveedor implements Serializable {
         this.direccion = direccion;
     }
 
-    public ArrayList<Producto> getProductos() {
-        return productos;
-    }
-
-    public void setProductos(ArrayList<Producto> productos) {
-        this.productos = productos;
-    }
-
     @Override
     public String toString() {
-        return "Proveedor{" + "rfc=" + rfc + ", nombre=" + nombre + ", telefono=" + telefono + ", direccion=" + direccion + ", productos=" + productos + '}';
+        return "Proveedor{" + "rfc=" + rfc + '}';
     }
     
     

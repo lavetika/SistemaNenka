@@ -19,11 +19,9 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "empleados")
-public class Empleado extends Persona implements Serializable{
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+public class Empleado extends Persona{
+
+    private static final long serialVersionUID = 8358535933244006445L;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleado")
     private List<Corte> cortes;
@@ -44,14 +42,6 @@ public class Empleado extends Persona implements Serializable{
     public Empleado(List<Corte> cortes, Puesto puesto) {
         this.cortes = cortes;
         this.puesto = puesto;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public List<Corte> getCortes() {

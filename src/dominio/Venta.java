@@ -24,11 +24,9 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "ventas")
-public class Venta implements Serializable {
-    
-    @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Integer id;
+public class Venta extends EntityBase{
+
+    private static final long serialVersionUID = -489490841666836399L;
     
     @Column(name = "fecha", nullable = false)
     @Temporal(TemporalType.DATE)
@@ -57,14 +55,6 @@ public class Venta implements Serializable {
         this.total = total;
         this.empleado = empleado;
         this.cliente = cliente;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public List<DetalleVenta> getDetallesVentas() {

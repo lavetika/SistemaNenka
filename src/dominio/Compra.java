@@ -24,11 +24,9 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "compras")
-public class Compra implements Serializable {
-    
-    @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Integer id;
+public class Compra extends EntityBase {
+
+    private static final long serialVersionUID = 9042605776488919556L;
     
     @Column(name = "fecha", nullable = false)
     @Temporal(TemporalType.DATE)
@@ -43,7 +41,7 @@ public class Compra implements Serializable {
     
     @ManyToOne(optional = false)
     @JoinColumn(name = "id_proveedor")
-    private Proveedor provedor;
+    private Proveedor proveedor;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "compra")
     private List<DetalleCompra> detalleCompras;
@@ -65,20 +63,12 @@ public class Compra implements Serializable {
         this.fecha = fecha;
     }
 
-    public Integer getId() {
-        return id;
+    public Proveedor getProveedor() {
+        return proveedor;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Proveedor getProvedor() {
-        return provedor;
-    }
-
-    public void setProvedor(Proveedor provedor) {
-        this.provedor = provedor;
+    public void setProveedor(Proveedor proveedor) {
+        this.proveedor = proveedor;
     }
 
     public List<DetalleCompra> getDetalleCompras() {

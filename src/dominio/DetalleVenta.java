@@ -18,11 +18,9 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "detalles_ventas")
-public class DetalleVenta implements Serializable {
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+public class DetalleVenta extends EntityBase {
+
+    private static final long serialVersionUID = 2017822841704871770L;
     
     @Column(name = "cantidad", nullable = false)
     private float cantidad;
@@ -51,14 +49,6 @@ public class DetalleVenta implements Serializable {
         this.precioUnitario = precioUnitario;
         this.importe = importe;
         this.producto = producto;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public Venta getVenta() {

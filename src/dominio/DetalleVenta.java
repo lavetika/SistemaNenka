@@ -23,7 +23,7 @@ public class DetalleVenta extends EntityBase {
     private static final long serialVersionUID = 2017822841704871770L;
     
     @Column(name = "cantidad", nullable = false)
-    private float cantidad;
+    private int cantidad;
     
     @Column(name = "precio_unitario", nullable = false)
     private float precioUnitario;
@@ -44,7 +44,7 @@ public class DetalleVenta extends EntityBase {
     public DetalleVenta() {
     }
 
-    public DetalleVenta(float cantidad, float precioUnitario, float importe, Producto producto) {
+    public DetalleVenta(int cantidad, float precioUnitario, float importe, Producto producto) {
         this.cantidad = cantidad;
         this.precioUnitario = precioUnitario;
         this.importe = importe;
@@ -59,11 +59,11 @@ public class DetalleVenta extends EntityBase {
         this.venta = venta;
     }
 
-    public float getCantidad() {
+    public int getCantidad() {
         return cantidad;
     }
 
-    public void setCantidad(float cantidad) {
+    public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
 

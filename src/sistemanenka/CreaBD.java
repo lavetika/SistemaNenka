@@ -19,11 +19,7 @@ public class CreaBD {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        EntityManager em;
-        
-        EntityManagerFactory managerFactory
-                    = Persistence.createEntityManagerFactory("SistemaNenkaPU");
-            em = managerFactory.createEntityManager();
+
     }
     
 }

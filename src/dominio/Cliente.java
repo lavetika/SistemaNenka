@@ -33,8 +33,6 @@ public class Cliente extends Persona {
     @JoinColumn(name="id_direccion")
     private Direccion direccion;
     
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cliente")
-    private List<Venta> ventas;
 
     public Cliente() {
     }
@@ -51,14 +49,6 @@ public class Cliente extends Persona {
 
     public String getTelefono() {
         return telefono;
-    }
-
-    public List<Venta> getVentas() {
-        return ventas;
-    }
-
-    public void setVentas(List<Venta> ventas) {
-        this.ventas = ventas;
     }
 
     public void setTelefono(String telefono) {

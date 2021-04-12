@@ -31,7 +31,7 @@ public class Producto extends EntityBase{
     private String nombre;
     
     @Column(name = "stock", nullable = false)
-    private int stock;
+    private double stock;
     
     @ManyToOne(optional = false)
     @JoinColumn(name = "id_categoria")
@@ -44,7 +44,7 @@ public class Producto extends EntityBase{
     public Producto() {
     }
 
-    public Producto(int codigo, float precio, String nombre, int stock, Categoria categoria) {
+    public Producto(int codigo, float precio, String nombre, double stock, Categoria categoria) {
         this.codigo = codigo;
         this.precio = precio;
         this.nombre = nombre;
@@ -84,11 +84,11 @@ public class Producto extends EntityBase{
         this.nombre = nombre;
     }
 
-    public int getStock() {
+    public double getStock() {
         return stock;
     }
 
-    public void setStock(int stock) {
+    public void setStock(double stock) {
         this.stock = stock;
     }
 

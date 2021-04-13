@@ -29,7 +29,7 @@ public class Venta extends EntityBase{
     private Date fecha;
     
     @Column(name = "total", nullable = false)
-    private float total;
+    private double total;
     
     @ManyToOne(optional = false)
     @JoinColumn(name = "id_empleado")
@@ -46,14 +46,14 @@ public class Venta extends EntityBase{
     public Venta() {
     }
 
-    public Venta(Date fecha, float total, Empleado empleado, Cliente cliente) {
+    public Venta(Date fecha, double total, Empleado empleado, Cliente cliente) {
         this.fecha = fecha;
         this.total = total;
         this.empleado = empleado;
         this.cliente = cliente;
     }
 
-    public Venta(Date fecha, float total, Empleado empleado, Cliente cliente, List<DetalleVenta> detallesVentas) {
+    public Venta(Date fecha, double total, Empleado empleado, Cliente cliente, List<DetalleVenta> detallesVentas) {
         this.fecha = fecha;
         this.total = total;
         this.empleado = empleado;
@@ -77,11 +77,11 @@ public class Venta extends EntityBase{
         this.fecha = fecha;
     }
 
-    public float getTotal() {
+    public double getTotal() {
         return total;
     }
 
-    public void setTotal(float total) {
+    public void setTotal(double total) {
         this.total = total;
     }
 

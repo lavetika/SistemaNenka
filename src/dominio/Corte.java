@@ -28,7 +28,7 @@ public class Corte extends EntityBase{
     private static final long serialVersionUID = 5814894723512130840L;
     
     @Column(name = "monto", nullable = false)
-    private float monto;
+    private double monto;
     
     @Column(name = "fecha", nullable = false)
     @Temporal(TemporalType.DATE)
@@ -45,7 +45,7 @@ public class Corte extends EntityBase{
     public Corte() {
     }
 
-    public Corte(float monto, Date fecha, TipoCorte tipoCorte) {
+    public Corte(double monto, Date fecha, TipoCorte tipoCorte) {
         this.monto = monto;
         this.fecha = fecha;
         this.tipoCorte = tipoCorte;
@@ -60,11 +60,11 @@ public class Corte extends EntityBase{
     }
     
 
-    public float getMonto() {
+    public double getMonto() {
         return monto;
     }
 
-    public void setMonto(float monto) {
+    public void setMonto(double monto) {
         this.monto = monto;
     }
 

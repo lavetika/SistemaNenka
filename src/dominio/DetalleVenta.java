@@ -2,6 +2,7 @@
 package dominio;
 
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,13 +24,13 @@ public class DetalleVenta extends EntityBase {
     private static final long serialVersionUID = 2017822841704871770L;
     
     @Column(name = "cantidad", nullable = false)
-    private int cantidad;
+    private double cantidad;
     
     @Column(name = "precio_unitario", nullable = false)
-    private float precioUnitario;
+    private double precioUnitario;
     
     @Column(name = "importe", nullable = false)
-    private float importe;
+    private double importe;
     
     @ManyToOne(optional = false)
     @JoinColumn(name = "id_producto")
@@ -44,7 +45,7 @@ public class DetalleVenta extends EntityBase {
     public DetalleVenta() {
     }
 
-    public DetalleVenta(int cantidad, float precioUnitario, float importe, Producto producto) {
+    public DetalleVenta(double cantidad, double precioUnitario, double importe, Producto producto) {
         this.cantidad = cantidad;
         this.precioUnitario = precioUnitario;
         this.importe = importe;
@@ -59,27 +60,27 @@ public class DetalleVenta extends EntityBase {
         this.venta = venta;
     }
 
-    public int getCantidad() {
+    public double getCantidad() {
         return cantidad;
     }
 
-    public void setCantidad(int cantidad) {
+    public void setCantidad(double cantidad) {
         this.cantidad = cantidad;
     }
 
-    public float getPrecioUnitario() {
+    public double getPrecioUnitario() {
         return precioUnitario;
     }
 
-    public void setPrecioUnitario(float precioUnitario) {
+    public void setPrecioUnitario(double precioUnitario) {
         this.precioUnitario = precioUnitario;
     }
 
-    public float getImporte() {
+    public double getImporte() {
         return importe;
     }
 
-    public void setImporte(float importe) {
+    public void setImporte(double importe) {
         this.importe = importe;
     }
 
@@ -90,5 +91,34 @@ public class DetalleVenta extends EntityBase {
     public void setProducto(Producto producto) {
         this.producto = producto;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 89 * hash + Objects.hashCode(this.producto);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final DetalleVenta other = (DetalleVenta) obj;
+        if (!Objects.equals(this.producto, other.producto)) {
+            return false;
+        }
+        return true;
+    }
     
+    @Override
+    public String toString() {
+        return "DetalleVenta{" + "cantidad=" + cantidad + ", precioUnitario=" + precioUnitario + ", importe=" + importe + ", producto=" + producto + '}';
+    }
 }

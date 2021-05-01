@@ -7,7 +7,7 @@ import javax.persistence.metamodel.ListAttribute;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2021-04-12T00:24:29")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2021-04-26T21:39:35")
 @StaticMetamodel(Puesto.class)
 public class Puesto_ extends EntityBase_ {
 

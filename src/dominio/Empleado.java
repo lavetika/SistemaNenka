@@ -1,9 +1,9 @@
-
 package dominio;
 
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,19 +19,25 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "empleados")
-public class Empleado extends Persona{
+public class Empleado extends Persona {
 
     private static final long serialVersionUID = 8358535933244006445L;
-    
+
+    @Column(name = "username")
+    private String username;
+
+    @Column(name = "contrasena")
+    private String contrasena;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleado")
     private List<Corte> cortes;
-    
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleado")
     private List<Venta> ventas;
-    
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleado")
     private List<Compra> compras;
-    
+
     @ManyToOne(optional = false)
     @JoinColumn(name = "id_puesto")
     private Puesto puesto;
@@ -67,7 +73,7 @@ public class Empleado extends Persona{
     public void setCompras(List<Compra> compras) {
         this.compras = compras;
     }
-    
+
     public Puesto getPuesto() {
         return puesto;
     }
@@ -76,12 +82,25 @@ public class Empleado extends Persona{
         this.puesto = puesto;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
+    
     @Override
     public String toString() {
         return "Empleado{" + "corte=" + cortes + ", puesto=" + puesto + '}';
     }
-    
-     
-   
-    
+
 }

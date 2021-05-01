@@ -27,7 +27,7 @@ public class Proveedor extends EntityBase {
     private static final long serialVersionUID = 175810479874098146L;
     
     @Column(name = "rfc", nullable = false)
-    private int rfc;
+    private String rfc;
     
     @Column(name = "nombre_proveedor", length = 50, nullable = false)
     private String nombre;
@@ -45,18 +45,18 @@ public class Proveedor extends EntityBase {
     public Proveedor() {
     }
 
-    public Proveedor(int rfc, String nombre, String telefono, Direccion direccion) {
+    public Proveedor(String rfc, String nombre, String telefono, Direccion direccion) {
         this.rfc = rfc;
         this.nombre = nombre;
         this.telefono = telefono;
         this.direccion = direccion;
     }
 
-    public int getRfc() {
+    public String getRfc() {
         return rfc;
     }
 
-    public void setRfc(int rfc) {
+    public void setRfc(String rfc) {
         this.rfc = rfc;
     }
 

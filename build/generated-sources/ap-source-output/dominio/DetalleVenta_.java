@@ -6,14 +6,14 @@ import javax.annotation.Generated;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2021-04-12T00:24:29")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2021-04-26T21:39:35")
 @StaticMetamodel(DetalleVenta.class)
 public class DetalleVenta_ extends EntityBase_ {
 
     public static volatile SingularAttribute<DetalleVenta, Venta> venta;
-    public static volatile SingularAttribute<DetalleVenta, Float> precioUnitario;
-    public static volatile SingularAttribute<DetalleVenta, Integer> cantidad;
+    public static volatile SingularAttribute<DetalleVenta, Double> precioUnitario;
+    public static volatile SingularAttribute<DetalleVenta, Double> cantidad;
     public static volatile SingularAttribute<DetalleVenta, Producto> producto;
-    public static volatile SingularAttribute<DetalleVenta, Float> importe;
+    public static volatile SingularAttribute<DetalleVenta, Double> importe;
 
 }

@@ -26,7 +26,7 @@ public class Puesto extends EntityBase {
     private static final long serialVersionUID = 908962861052720457L;
     
     @Column(name="rol", nullable = false, length = 8 )
-    @Enumerated(value = EnumType.STRING)
+    @Enumerated(EnumType.ORDINAL)
     private Rol rol; 
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "puesto")

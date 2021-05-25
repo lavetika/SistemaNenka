@@ -29,7 +29,7 @@ public class Compra extends EntityBase {
     private static final long serialVersionUID = 9042605776488919556L;
     
     @Column(name = "fecha", nullable = false)
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date fecha;
     
     @Column(name = "total", nullable = false)

@@ -25,7 +25,7 @@ public class Venta extends EntityBase{
     private static final long serialVersionUID = -489490841666836399L;
     
     @Column(name = "fecha", nullable = false)
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date fecha;
     
     @Column(name = "total", nullable = false)

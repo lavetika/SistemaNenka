@@ -44,11 +44,12 @@ public class Producto extends EntityBase{
     public Producto() {
     }
 
-    public Producto(int codigo, float precio, String nombre, double stock, Categoria categoria) {
+    public Producto(int codigo, float precio, String nombre, double stock, Categoria categoria, Proveedor proveedor) {
         this.codigo = codigo;
         this.precio = precio;
         this.nombre = nombre;
         this.stock = stock;
+        this.proveedor = proveedor;
         this.categoria = categoria;
     }
 

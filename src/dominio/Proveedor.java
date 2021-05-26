@@ -94,7 +94,7 @@ public class Proveedor extends EntityBase {
 
     @Override
     public String toString() {
-        return "Proveedor{" + "rfc=" + rfc + '}';
+        return nombre;
     }
     
     
